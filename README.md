@@ -106,7 +106,7 @@ The end-to-end training process is
 + Compute the loss function on the results.
 + Update the model parameters in a direction that reduces loss.
 You continue to cycle through these steps until you reach a predefined stop condition. This might be based on a training time, the number of training cycles, or an even more intelligent or application-aware mechanism.
-<b>Hyperparameters <b/> are settings on the model which are not changed during training but can affect how quickly or how reliably the model trains, such as the number of clusters the model should identify.
+<b>Hyperparameters </b> are settings on the model which are not changed during training but can affect how quickly or how reliably the model trains, such as the number of clusters the model should identify.
 + A loss function is used to codify the model’s distance from this goal
 + Training dataset: The data on which the model will be trained. Most of your data will be here.
 + Test dataset: The data withheld from the model during training, which is used to test how well your model will generalize to new data.
