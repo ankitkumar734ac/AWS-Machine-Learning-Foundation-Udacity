@@ -89,6 +89,82 @@ Look at the following two graphs. In the first graph, some data seems to have cl
 ![plot2](https://user-images.githubusercontent.com/71343747/123731166-413b0800-d8b5-11eb-9e58-0cc801fb5802.png)
 In machine learning, you use several statistical-based tools to better understand your data. The sklearn library has many examples and tutorials, such as this example demonstrating < a herf="https://sklearn.org/auto_examples/applications/plot_outlier_detection_housing.html#sphx-glr-auto-examples-applications-plot-outlier-detection-housing-py" >outlier detection on a real dataset.</a>
 # Step Three: Model Training
+### Splitting your Dataset
+The first step in model training is to randomly split the dataset. This allows you to keep some data hidden during training, so that data can be used to evaluate your model before you put it into production. Specifically, you do this to test against the bias-variance trade-off. If you're interested in learning more, see the Further learning and reading section.
+
+Splitting your dataset gives you two sets of data:
+
++ Training dataset: The data on which the model will be trained. Most of your data will be here. Many developers estimate about 80%.
++ Test dataset: The data withheld from the model during training, which is used to test how well your model will generalize to new data.
+# Model Training Terminology
+    The model training algorithm iteratively updates a model's parameters to minimize some loss function.
++ <b>Model parameters:</b> Model parameters are settings or configurations the training algorithm can update to change how the model behaves. Depending on the context, you’ll also hear other more specific terms used to describe model parameters such as weights and biases. Weights, which are values that change as the model learns, are more specific to neural networks.
++ <b>Loss function:</b> A loss function is used to codify the model’s distance from this goal. For example, if you were trying to predict a number of snow cone sales based on the day’s weather, you would care about making predictions that are as accurate as possible. So you might define a loss function to be “the average distance between your model’s predicted number of snow cone sales and the correct number.” You can see in the snow cone example this is the difference between the two purple dots.
+## Putting it All Together
+The end-to-end training process is
++ Feed the training data into the model.
++ Compute the loss function on the results.
++ Update the model parameters in a direction that reduces loss.
+You continue to cycle through these steps until you reach a predefined stop condition. This might be based on a training time, the number of training cycles, or an even more intelligent or application-aware mechanism.
+<b>Hyperparameters <b/> are settings on the model which are not changed during training but can affect how quickly or how reliably the model trains, such as the number of clusters the model should identify.
++ A loss function is used to codify the model’s distance from this goal
++ Training dataset: The data on which the model will be trained. Most of your data will be here.
++ Test dataset: The data withheld from the model during training, which is used to test how well your model will generalize to new data.
++ Model parameters are settings or configurations the training algorithm can update to change how the model behaves.
+
+ # Step Four: Model Evaluation
+ After you have collected your data and trained a model, you can start to evaluate how well your model is performing. The metrics used for evaluation are likely to be very specific to the problem you have defined. As you grow in your understanding of machine learning, you will be able to explore a wide variety of metrics that can enable you to evaluate effectively.
+ ## Using Model Accuracy
+Model accuracy is a fairly common evaluation metric. Accuracy is the fraction of predictions a model gets right.
+ ![flowers](https://user-images.githubusercontent.com/71343747/124062811-079e0480-da4f-11eb-9a2a-c98692e2fdc6.png)
+Imagine that you built a model to identify a flower as one of two common species based on measurable details like petal length. You want to know how often your model predicts the correct species. This would require you to look at your model's accuracy.
+## Extended Learning
+This information hasn't been covered in the above video but is provided for the advanced reader.
+
+## Using Log Loss
+Log loss seeks to calculate how uncertain your model is about the predictions it is generating. In this context, uncertainty refers to how likely a model thinks the predictions being generated are to be correct.
+![jackets](https://user-images.githubusercontent.com/71343747/124062846-21d7e280-da4f-11eb-9aa8-ef8207d36252.png)
+For example, let's say you're trying to predict how likely a customer is to buy either a jacket or t-shirt.
+
+Log loss could be used to understand your model's uncertainty about a given prediction. In a single instance, your model could predict with 5% certainty that a customer is going to buy a t-shirt. In another instance, your model could predict with 80% certainty that a customer is going to buy a t-shirt. Log loss enables you to measure how strongly the model believes that its prediction is accurate.
+
+In both cases, the model predicts that a customer will buy a t-shirt, but the model's certainty about that prediction can change.
+ ## Remember: This Process is Iterative
+![stepsiter](https://user-images.githubusercontent.com/71343747/124062928-564b9e80-da4f-11eb-8ad0-18483b81e651.png)
+Every step we have gone through is highly iterative and can be changed or re-scoped during the course of a project. At each step, you might find that you need to go back and reevaluate some assumptions you had in previous steps. Don't worry! This ambiguity is normal.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
