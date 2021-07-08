@@ -422,6 +422,7 @@ Reward primary y-axis
 Percentage track completion secondary y-axis
 Iteration x-axis
 Review the solution to this exercise for ideas on how to interpret it.
+
 <img width="404" alt="best-model-bar-reward-graph2" src="https://user-images.githubusercontent.com/71343747/124374764-a9298e00-dcbb-11eb-9939-1d44d3b1bb9d.png">
 
 Exercise Solution
@@ -441,6 +442,7 @@ Percentage track completion secondary y-axis
 This shows you the percentage of the track the agent completed during a training iteration.
 Iteration x-axis
 This shows the number of iterations completed during your training job.
+
 <img width="404" alt="best-model-bar-reward-graph2 (1)" src="https://user-images.githubusercontent.com/71343747/124374784-c0687b80-dcbb-11eb-8e7d-74f435d388ed.png">
 
 Reward Graph Interpretation
@@ -448,11 +450,14 @@ The following four examples give you a sense of how to interpret the success of 
 
 Needs more training
 In the following example, we see there have only been 600 iterations, and the graphs are still going up. We see the evaluation completion percentage has just reached 100%, which is a good sign but isn’t fully consistent yet, and the training completion graph still has a ways to go. This reward function and model are showing promise, but need more training time.
+
 <img width="457" alt="udacity-reward-graph-needs-more-training" src="https://user-images.githubusercontent.com/71343747/124374792-cb231080-dcbb-11eb-8b86-e330aed8dec2.png">
 
 No improvement
 In the next example, we can see that the percentage of track completions haven’t gone above around 15 percent and it's been training for quite some time—probably around 6000 iterations or so. This is not a good sign! Consider throwing this model and reward function away and trying a different strategy.
+
 <img width="456" alt="udacity-reward-graph-bad-graph" src="https://user-images.githubusercontent.com/71343747/124374799-d83fff80-dcbb-11eb-86c7-c9fa4f5f7f5a.png">
+
 A well-trained model
 In the following example graph, we see the evaluation percentage completion reached 100% a while ago, and the training percentage reached 100% roughly 100 or so iterations ago. At this point, the model is well trained. Training it further might lead to the model becoming overfit to this track.
 
@@ -462,19 +467,65 @@ Avoid overfitting
 Overfitting or overtraining is a really important concept in machine learning. With AWS DeepRacer, this can become an issue when a model is trained on a specific track for too long. A good model should be able to make decisions based on the features of the road, such as the sidelines and centerlines, and be able to drive on just about any track.
 
 An overtrained model, on the other hand, learns to navigate using landmarks specific to an individual track. For example, the agent turns a certain direction when it sees uniquely shaped grass in the background or a specific angle the corner of the wall makes. The resulting model will run beautifully on that specific track, but perform badly on a different virtual track, or even on the same track in a physical environment due to slight variations in angles, textures, and lighting.
+
 <img width="424" alt="udacity-reward-graph-overfitting" src="https://user-images.githubusercontent.com/71343747/124374814-e68e1b80-dcbb-11eb-80d4-0575aa1f6f23.png">
 
 Adjust hyperparameters
 The AWS DeepRacer console's default hyperparameters are quite effective, but occasionally you may consider adjusting the training hyperparameters. The hyperparameters are variables that essentially act as settings for the training algorithm that control the performance of your agent during training. We learned, for example, that the learning rate controls how many new experiences are counted in learning at each step.
-
 In this reward graph example, the training completion graph and the reward graph are swinging high and low. This might suggest an inability to converge, which may be helped by adjusting the learning rate. Imagine if the current weight for a given node is .03, and the optimal weight should be .035, but your learning rate was set to .01. The next training iteration would then swing past optimal to .04, and the following iteration would swing under it to .03 again. If you suspect this, you can reduce the learning rate to .001. A lower learning rate makes learning take longer but can help increase the quality of your model.
+
 <img width="415" alt="udacity-reward-graph-adjust-hyperparameters" src="https://user-images.githubusercontent.com/71343747/124374826-f574ce00-dcbb-11eb-9a65-e6739f91e85d.png">
+
 Good Job and Good Luck!
 Remember: training experience helps both model and reinforcement learning practitioners become a better team. Enter your model in the monthly AWS DeepRacer League races for chances to win prizes and glory while improving your machine learning development skills!
 
 
-#  
+#  Introduction to Generative AI
+Generative AI is one of the biggest recent advancements in artificial intelligence because of its ability to create new things.
 
+Until recently, the majority of machine learning applications were powered by discriminative models. A discriminative model aims to answer the question, "If I'm looking at some data, how can I best classify this data or predict a value?" For example, we could use discriminative models to detect if a camera was pointed at a cat.
+
+As we train this model over a collection of images (some of which contain cats and others which do not), we expect the model to find patterns in images which help make this prediction.
+
+A generative model aims to answer the question,"Have I seen data like this before?" In our image classification example, we might still use a generative model by framing the problem in terms of whether an image with the label "cat" is more similar to data you’ve seen before than an image with the label "no cat."
+
+However, generative models can be used to support a second use case. The patterns learned in generative models can be used to create brand new examples of data which look similar to the data it seen before.
+
+<img width="778" alt="screen-shot-2021-05-04-at-12 55 15-pm" src="https://user-images.githubusercontent.com/71343747/124845005-61ed1700-dfb3-11eb-9dc0-a077e759ef44.png">
+
+# Generative AI Models
+## Autoregressive models
+Autoregressive convolutional neural networks (AR-CNNs) are used to study systems that evolve over time and assume that the likelihood of some data depends only on what has happened in the past. It’s a useful way of looking at many systems, from weather prediction to stock prediction.
+
+##vGenerative adversarial networks (GANs)
+Generative adversarial networks (GANs), are a machine learning model format that involves pitting two networks against each other to generate new content. The training algorithm swaps back and forth between training a generator network (responsible for producing new data) and a discriminator network (responsible for measuring how closely the generator network’s data represents the training dataset).
+
+## Transformer-based models
+Transformer-based models are most often used to study data with some sequential structure (such as the sequence of words in a sentence). Transformer-based methods are now a common modern tool for modeling natural language.
+
+# What is AWS DeepComposer?
+AWS DeepComposer gives you a creative and easy way to get started with machine learning (ML), specifically generative AI. It consists of a USB keyboard that connects to your computer to input melody and the AWS DeepComposer console, which includes AWS DeepComposer Music studio to generate music, learning capsules to dive deep into generative AI models, and AWS DeepComposer Chartbusters challenges to showcase your ML skills.
+# What are GANs?
+A GAN is a type of generative machine learning model which pits two neural networks against each other to generate new content: a generator and a discriminator.
+
+A generator is a neural network that learns to create new data resembling the source data on which it was trained.
+A discriminator is another neural network trained to differentiate between real and synthetic data.
+The generator and the discriminator are trained in alternating cycles. The generator learns to produce more and more realistic data while the discriminator iteratively gets better at learning to differentiate real data from the newly created data.
+# Generator: 
+A neural network that learns to create new data resembling the source data on which it was trained.
+# Discriminator: 
+A neural network trained to differentiate between real and synthetic data.
+# Generator loss: 
+Measures how far the output data deviates from the real data present in the training dataset.
+# Discriminator loss:
+Evaluates how well the discriminator differentiates between real and fake data.
+# AR-CNN with AWS DeepComposer
+When a note is either added or removed from your input track during inference, we call it an edit event. To train the AR-CNN model to predict when notes need to be added or removed from your input track (edit event), the model iteratively updates the input track to sounds more like the training dataset. During training, the model is also challenged to detect differences between an original piano roll and a newly modified piano roll.
+
+New Terms
+Piano roll: A two-dimensional piano roll matrix that represents input tracks. Time is on the horizontal axis and pitch is on the vertical axis.
+Edit event: When a note is either added or removed from your input track during inference.
+<img width="1291" alt="aws-mle-demo-gan-image" src="https://user-images.githubusercontent.com/71343747/124845850-366b2c00-dfb5-11eb-8298-68789767ab4a.png">
 
 
 
